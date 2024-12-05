@@ -30,5 +30,16 @@ class Booking(models.Model):
     def __str__(self):
         return f'{self.room_no}-{self.user}'
 
-    
+class Payment(models.Model):
+    booking=models.ForeignKey(Booking,on_delete=models.CASCADE)
+    txt_id=models.TextField()
+    total_amt=models.DecimalField(max_digits=10,decimal_places=2)
+    response_data=models.TextField()
+    payment_date=models.DateField(auto_now_add=True)
 
+class Gallery(models.Model):
+    image=models.ImageField(upload_to='g_images/')
+
+class RoomImage(models.Model):
+    room_type=models.ForeignKey(RoomType,on_delete=models.CASCADE,null=True)
+    image=models.ImageField(upload_to='room_type_imgs/')
