@@ -33,3 +33,16 @@ class Profile(models.Model):
 def create_user_profile(sender,instance,created,**kwargs):
     if created:
         Profile.objects.create(user=instance)
+
+
+
+class Carrer(models.Model):
+    full_name=models.CharField(max_length=200,null=True)
+    email=models.CharField(max_length=200,null=True)
+    mobile=models.CharField(blank=True,null=True)
+    message=models.TextField(null=True)
+    updated_cv=models.FileField(upload_to='cv_files/')
+    add_time=models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        self.full_name
