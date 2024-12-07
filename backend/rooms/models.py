@@ -45,16 +45,8 @@ class RoomImage(models.Model):
     image=models.ImageField(upload_to='room_type_imgs/')
 
 
-class Banners(models.Model):
-     title=models.CharField(max_length=200,null=True)
-     image=models.ImageField(upload_to='banner_imgs/')
 
-     def  __str__(self):
-         return self.title
          
 
 
 
-class ControlPanel(models.Model):
-    
-     logo=models.ImageField(upload_to='logo_imgs/')

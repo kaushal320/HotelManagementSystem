@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path,include
-
+from . import views
 urlpatterns = [
-    path("/", admin.site.urls),
-     path("api/", include('website.urls')),
+    path('banners',views.BannersList.as_view())
+  
 ]
